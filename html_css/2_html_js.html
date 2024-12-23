@@ -1,0 +1,66 @@
+<!--
+    html 컨텐츠에 js를 연결하여 이벤트, 통신 등 html 인터렉션 처리
+    1. 뼈대 준비 -> html
+    2. JS 세팅 -> 인터렉션 처리
+-->
+<html>
+<head>
+
+</head>
+<body>
+    <!-- 사용자 입력 : ID/PW -->
+    <!-- type은 입력받은 데이터를 가장 효과적으로 입력할 수 있게
+        키보드조정 => 모바일에서 가상 키보드 레이아웃 조절
+        입력 데이터의 목적에 맞게 조정
+        기본은 text, password, number, date, time, email, ...
+    -->
+    <!-- 로그인 입력 화면 -->
+    <div>
+        <!-- 페이지 목적에 따른 정보 제공 -->
+        <p>로그인</p>
+        <!-- 사용자가 입력받는 공간 제공 -->
+        <input type="text" id="uid" placeholder="아이디"/> <!-- 단독태그(열고 닫기 없음) 형태 -->
+        <input type="password" id="upw" placeholder="비밀번호"/>
+        <!-- 목적 달성하기 위한 도구 제공 -->
+        <button onclick="login();">로그인(inline)</button>
+        <button id="loginBtn">로그인(internal)</button>
+        <!-- 로그인 버튼 클릭 -> 이벤트 발생 -> 인터렉션 발생 -> 누군가 처리(JS) -->
+        <!--
+            <로그인 처리 시 작업 순서 : JS>
+            로그인 버튼 특정(찾는다 -> css selector 기법)
+                - #loginBtn
+            특정된 로그인 버튼에 이벤트 등록 (click event)
+            이벤트 발생 -> 입력값 추출
+            입력값 -> 서버로 전송 (http 통신)
+            -->
+        <script>
+            // JS 영역
+            // 현재 코드는 internal 방식
+            // html에 js는 어떻게 포함되는가?
+            // 로그인 함수
+            function login() {
+                console.log("로그인 버튼 클릭");
+            }
+            // 1. 로그인 버튼 특정
+            // 오래된 방식
+            // const btn = document.getElementById("loginBtn") //순수 id값 사용
+            // html5부터 지원하는 방식
+            const btn = document.querySelector('#loginBtn'); // css selector 적용
+            // 2. 버튼에 이벤트 등록
+            // btn.addEventListner('click', function(){})
+            btn.addEventListener('click', ()=>{
+                // alert("로그인 클릭"); // 팝업
+                // 실습 1. 아이디, 비번 입력 요소를 특정하시오
+                const uid = document.querySelector("#uid") // id값은 uid
+                const upw = document.querySelector("#upw") // pw값은 upw
+                console.log(uid.value, upw.value); // 값 출력
+
+                // 서버로 데이터 전송
+                // JS -> ajax -> api 존재(함수가 존재함) -> 순수JS는 코드가 복잡
+                // html로 전송하거나 혹은 JS 프레임워크(third party) 사용
+            })
+
+        </script>
+    </div>
+</body>
+</html>

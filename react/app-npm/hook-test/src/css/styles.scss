@@ -1,0 +1,7 @@
+// 스타일 자체를 변수처럼 표현, $ 사용
+// 스타일을
+$title-color : blue;
+
+.title{
+    color:$title-color,
+}

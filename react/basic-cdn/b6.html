@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>함수형 컴포넌트 MyImg 구성</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        let html = 
+            <div>
+                <MyImg src="http://127.0.0.1:5500/react/basic/image.png" label="설명"/>
+            </div>
+        function MyImg(props){ // props 속성이 전달되는 매개변수형
+            // 커스텀 컴포넌트는 기존 html|컴포넌트 + 로직(기능, 이벤트 등등) 가미
+            // 새로운 기능을 가진 일종의 요소를 만드는 과정
+            const {src, label} = props;
+            return (
+                <> {/* 앞에 비워있는 기호는 div로 해석된다 */}
+                    <img src={src} />
+                    <span>{label}</span>
+                </>
+            );
+        }    
+        const root = document.querySelector('#root');
+        const react_root = ReactDOM.createRoot( root ); // VDOM 을 생성
+        react_root.render( html ); // JSX 랜더링
+    </script>
+</body>
+</html>
