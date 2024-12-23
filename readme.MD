@@ -212,7 +212,7 @@
                 - git config --global user.email "본인 github 이메일"
                     - git config --global user.email "dmlwn3621@naver.com"
                 - git config --global user.name "본인 github 이름"
-                    - git config --global user.email "JangEuiJu"    
+                    - git config --global user.name "JangEuiJu"    
 
         - 개발 프로젝트와 github 연동
             - 기본 형태
@@ -241,7 +241,7 @@
                     # staged : git add xx => github 에 적용된 대상이 됨
                     git add .
 
-                    # 커밋단계 : github(원격 저장소)와 동기하기전 최종 상태로 변경
+                    # 커밋단계 : github(원격 저장소)와 동기화 하기전 최종 상태로 변경
                     #           메세지 기입(규칙(나중에체크)에 맞게), 변동내용 정리
                     # 로컬 저장소에 저장
                     git commit -m "Feat: 프로젝트 최초 반영"
@@ -252,7 +252,7 @@
                     git branch -M main
 
                     # 1회성, 로컬 저장소를 원격 저장소와 연결!!
-                    git remote add origin https://github.com/edu2ucoc/frontend.git
+                    git remote add origin https://github.com/JangEuiJu/frontend.git
 
                     # 푸시 : 로컬 저장소의 변경된 내용을 원격 저장소에 반영하라!!
                     # push <-> pull
@@ -261,6 +261,16 @@
                     git push -u origin main
                     ```
                 4. 형상관리진행
+                    - 개인
+                        - 컴퓨터 구동
+                            - 수정된 내용 로컬 저장소 기준으로 최신화
+                                - git pull
+                            - 작업 -> 수정, 신규 추가
+                                - git add .
+                            - 커밋
+                                - git commit -m "Feat: xxx"
+                            - 푸시 -> 원격 저장소 반영
+                                - git push
 
 
 
